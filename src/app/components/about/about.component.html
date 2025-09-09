@@ -1,0 +1,34 @@
+<section id="about" class="about-section" #aboutSection>
+  <div class="container">
+    <h2 class="section-title" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">About Me</h2>
+    <div class="about-content" #aboutContent [@slideInLeft]="isVisible ? 'visible' : 'hidden'">
+      <!-- <div class="about-image" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">
+        <div class="profile-placeholder">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </div>
+      </div> -->
+      <div class="about-text" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">
+        <p class="about-bio" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">
+          I'm a passionate Full Stack Developer with expertise in modern web technologies. 
+          I specialize in building robust, scalable applications using Angular, .NET, and TypeScript. 
+          My approach focuses on clean architecture, performance optimization, and user experience.
+        </p>
+        <div class="skills-container">
+          <h3>Skills & Technologies</h3>
+          <div class="skills-grid" [@staggerAnimation]="isVisible ? 'visible' : 'hidden'">
+            <div class="skill-item" *ngFor="let skill of skills; let i = index" 
+                 [@bounceIn]="isVisible ? 'visible' : 'hidden'"
+                 [@fadeInUp]="{value: '*', params: {delay: i * 100}}">
+              <div class="skill-icon">
+                <i [class]="skill.icon"></i>
+              </div>
+              <span class="skill-name">{{ skill.name }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

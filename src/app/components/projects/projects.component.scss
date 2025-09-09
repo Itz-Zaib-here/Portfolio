@@ -1,0 +1,165 @@
+// Projects Section
+.projects-section {
+  .projects-filter {
+    margin-bottom: var(--spacing-2xl);
+    
+    .search-input {
+      width: 100%;
+      max-width: 400px;
+      padding: var(--spacing-sm);
+      background: var(--bg-secondary);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-size: 1rem;
+      margin-bottom: var(--spacing-md);
+      
+      &:focus {
+        outline: none;
+        border-color: var(--neon-purple);
+        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+      }
+      
+      &::placeholder {
+        color: var(--text-muted);
+      }
+    }
+    
+    .filter-buttons {
+      display: flex;
+      gap: var(--spacing-sm);
+      flex-wrap: wrap;
+      
+      .filter-btn {
+        padding: var(--spacing-xs) var(--spacing-md);
+        background: transparent;
+        border: 1px solid var(--text-muted);
+        color: var(--text-secondary);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: all var(--transition-normal);
+        
+        &:hover, &.active {
+          border-color: var(--neon-purple);
+          color: var(--neon-purple);
+          background: rgba(139, 92, 246, 0.1);
+        }
+      }
+    }
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+    
+    .project-card {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      border: 1px solid rgba(139, 92, 246, 0.1);
+      transition: all var(--transition-normal);
+      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.05);
+      
+      &:hover {
+        transform: translateY(-5px);
+        border-color: var(--neon-purple);
+        box-shadow: var(--shadow-neon);
+      }
+      
+      .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: var(--spacing-md);
+        
+        .project-title {
+          font-size: 1.25rem;
+          color: var(--text-primary);
+          margin-bottom: var(--spacing-xs);
+        }
+        
+        .project-stats {
+          display: flex;
+          gap: var(--spacing-sm);
+          
+          .stat {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            
+            i {
+              color: var(--neon-green);
+            }
+          }
+        }
+      }
+      
+      .project-description {
+        color: var(--text-secondary);
+        margin-bottom: var(--spacing-md);
+        line-height: 1.6;
+      }
+      
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-xs);
+        margin-bottom: var(--spacing-md);
+        
+        .tech-tag {
+          padding: 4px var(--spacing-xs);
+          background: rgba(139, 92, 246, 0.1);
+          color: var(--neon-purple);
+          border-radius: var(--radius-sm);
+          font-size: 0.8rem;
+          border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+      }
+      
+      .project-actions {
+        display: flex;
+        gap: var(--spacing-sm);
+        
+        .btn {
+          flex: 1;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .projects-filter {
+    .search-input { max-width: 100% !important; }
+    .filter-buttons { justify-content: center; }
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--spacing-md) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    padding: var(--spacing-md) !important;
+  }
+  
+  .project-header {
+    flex-direction: column !important;
+    gap: var(--spacing-sm) !important;
+  }
+}

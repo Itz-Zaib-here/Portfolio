@@ -1,0 +1,45 @@
+<!-- Portfolio Website -->
+<div class="portfolio-container">
+  <!-- Navigation Component -->
+  <app-navigation></app-navigation>
+
+  <!-- Hero Component -->
+  <app-hero></app-hero>
+
+  <!-- About Component -->
+  <app-about></app-about>
+
+  <!-- Services Component -->
+  <app-services></app-services>
+
+  <!-- Projects Component -->
+  <app-projects></app-projects>
+
+  <!-- Experience Component -->
+  <app-experience></app-experience>
+
+
+  <!-- Contact Section -->
+  <app-contact></app-contact>
+
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Itz-Zaib. Built with Angular & ❤️</p>
+    </div>
+  </footer>
+</div>
+
+<router-outlet />
+
+<!-- Back To Top Button -->
+<button
+  class="back-to-top"
+  [class.visible]="!isScrolling && !isHomeInView"
+  (click)="scrollToTop()"
+  aria-label="Back to top"
+>
+  ↑
+</button>

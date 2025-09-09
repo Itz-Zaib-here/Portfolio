@@ -1,0 +1,114 @@
+<!-- Minimal Desktop Navbar -->
+<nav class="navbar desktop-navbar" [class.scrolled]="isScrolled" [class.hidden]="isNavbarHidden">
+  <div class="nav-container">
+    <!-- Logo Section -->
+    <div class="nav-logo">
+      <a href="#home" class="logo">
+        <span class="logo-text">ShahZaib</span>
+        <div class="logo-dot"></div>
+      </a>
+    </div>
+    <!-- Links + Connect on right -->
+    <div class="nav-right">
+      <div class="links-glass">
+        <div class="nav-links">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#projects" class="nav-link">Projects</a>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button class="connect-button" (click)="openConnectModal()">
+          <span class="button-text">Let's Connect</span>
+          <div class="button-glow"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Minimal Mobile Navbar -->
+<nav class="navbar mobile-navbar" [class.active]="isMenuOpen">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <a href="#home" class="logo" (click)="closeMenu()">
+        <span class="logo-text">ShahZaib</span>
+        <div class="logo-dot"></div>
+      </a>
+    </div>
+    <button class="mobile-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen" aria-label="Open menu">
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+    </button>
+  </div>
+  <div class="mobile-overlay" [class.active]="isMenuOpen" (click)="closeMenu()"></div>
+  <div class="nav-links mobile-menu-sheet" [class.active]="isMenuOpen" role="dialog" aria-modal="true">
+    <div class="nav-bg">
+      <div class="bg-gradient"></div>
+      <div class="bg-blob blob-1"></div>
+      <div class="bg-blob blob-2"></div>
+      <div class="bg-blob blob-3"></div>
+    </div>
+    <div class="sheet-header">
+      <a href="#home" class="logo" (click)="closeMenu()">
+        <span class="logo-text">ShahZaib</span>
+        <div class="logo-dot"></div>
+      </a>
+      <button class="sheet-close" (click)="closeMenu()" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="sheet-links">
+      <a href="#about" class="nav-link" style="animation-delay: 0.05s" (click)="closeMenu()">About</a>
+      <a href="#services" class="nav-link" style="animation-delay: 0.10s" (click)="closeMenu()">Services</a>
+      <a href="#projects" class="nav-link" style="animation-delay: 0.15s" (click)="closeMenu()">Projects</a>
+    </div>
+    <div class="sheet-separator"></div>
+    <div class="sheet-footer">
+      <button class="connect-button" (click)="openConnectModal()">
+        <span class="button-text">Let's Connect</span>
+        <div class="button-glow"></div>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Connect Modal -->
+<div class="connect-modal" [class.active]="isConnectModalOpen" (click)="closeConnectModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>Let's Connect!</h2>
+      <button class="close-btn" (click)="closeConnectModal()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-description">
+        I'm always excited to connect with fellow developers and potential collaborators.
+      </p>
+      <div class="social-buttons">
+        <button class="social-btn github" (click)="connectViaGithub()">
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+          <small>View my projects</small>
+        </button>
+        <button class="social-btn linkedin" (click)="connectViaLinkedin()">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+          <small>Professional network</small>
+        </button>
+        <button class="social-btn email" (click)="connectViaEmail()">
+          <i class="fas fa-envelope"></i>
+          <span>Email</span>
+          <small>{{ socialLinks.email }}</small>
+        </button>
+        <button class="social-btn whatsapp" (click)="connectViaWhatsapp()">
+          <i class="fab fa-whatsapp"></i>
+          <span>WhatsApp</span>
+          <small>Quick chat</small>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<section id="contact" class="contact-section" #contactSection>
+  <div class="container">
+    <h2 class="section-title" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">Get In Touch</h2>
+    <div class="contact-content">
+      <div class="contact-info" [@slideInLeft]="isVisible ? 'visible' : 'hidden'">
+        <h3 [@scaleIn]="isVisible ? 'visible' : 'hidden'">Let's work together</h3>
+        <p [@fadeInUp]="isVisible ? 'visible' : 'hidden'">I'm always interested in new opportunities and exciting projects. Feel free to reach out!</p>
+        <div class="social-buttons" [@staggerAnimation]="isVisible ? 'visible' : 'hidden'">
+          <button class="social-btn github" (click)="connectViaGithub()" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+            <small>View my projects</small>
+          </button>
+          
+          <button class="social-btn linkedin" (click)="connectViaLinkedin()" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+            <small>Professional network</small>
+          </button>
+          
+          <button class="social-btn email" (click)="connectViaEmail()" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">
+            <i class="fas fa-envelope"></i>
+            <span>Email</span>
+            <small>{{ socialLinks.email }}</small>
+          </button>
+          
+          <button class="social-btn whatsapp" (click)="connectViaWhatsapp()" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+            <small>Quick chat</small>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+<section id="experience" class="experience-section" #experienceSection>
+  <div class="container">
+    <h2 class="section-title" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">Work Experience</h2>
+    <div class="experience-grid" #experienceGrid [@staggerAnimation]="isVisible ? 'visible' : 'hidden'">
+      <div class="experience-card" *ngFor="let job of workExperience; let i = index" 
+           [@fadeInUp]="{value: '*', params: {delay: i * 200}}"
+           [@scaleIn]="isVisible ? 'visible' : 'hidden'">
+        <div class="card-header" [@slideInLeft]="isVisible ? 'visible' : 'hidden'">
+          <div class="job-icon" [@bounceIn]="isVisible ? 'visible' : 'hidden'">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <div class="job-info">
+            <h3 class="job-title" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">{{ job.title }}</h3>
+            <h4 class="job-company" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">{{ job.company }}</h4>
+            <span class="job-period" [@scaleIn]="isVisible ? 'visible' : 'hidden'">{{ job.period }}</span>
+          </div>
+        </div>
+        
+        <div class="card-body" [@slideInRight]="isVisible ? 'visible' : 'hidden'">
+          <p class="job-description" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">{{ job.description }}</p>
+          
+          <div class="job-tech-stack" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">
+            <h5 class="tech-title" [@scaleIn]="isVisible ? 'visible' : 'hidden'">Technologies Used:</h5>
+            <div class="tech-tags" [@staggerAnimation]="isVisible ? 'visible' : 'hidden'">
+              <span class="tech-tag" *ngFor="let tech of job.technologies; let j = index" 
+                    [@fadeInUp]="{value: '*', params: {delay: j * 100}}">{{ tech }}</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card-footer" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">
+          <div class="experience-badge" [@bounceIn]="isVisible ? 'visible' : 'hidden'">
+            <i class="fas fa-star"></i>
+            <span>Experience</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

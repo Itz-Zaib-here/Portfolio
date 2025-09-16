@@ -93,7 +93,7 @@ export class NavigationComponent implements OnInit {
   connectViaEmail() {
     const subject = encodeURIComponent("Let's Connect - Portfolio Inquiry");
     const body = encodeURIComponent(
-      'Hi Itz-Zaib! I saw your portfolio and would like to connect with you.'
+      'Hi Shahzaib ! I would like to connect with you.'
     );
     window.open(
       `https://mail.google.com/mail/?view=cm&fs=1&to=${this.socialLinks.email}&su=${subject}&body=${body}`,
@@ -103,7 +103,7 @@ export class NavigationComponent implements OnInit {
 
   connectViaWhatsapp() {
     const message = encodeURIComponent(
-      'Hi Itz-Zaib! I saw your portfolio and would like to connect with you.'
+      'Hi Shahzaib ! I would like to connect with you.'
     );
     window.open(
       `https://wa.me/${this.socialLinks.whatsapp}?text=${message}`,

@@ -71,10 +71,17 @@ export const SKILLS: Skill[] = [
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
-    title: 'Junior Web Developer',
+    title: 'Junior Full Stack Developer',
+    company: 'Software Technologies IT Solutions Prodivate Multan',
+    period: 'Working',
+    description: 'Developed web apps using Angular and .NET; performed code reviews, debugging, and testing. Worked with RESTful APIs, Git, and agile processes.',
+    technologies: ['Angular', '.NET', 'C#', 'TypeScript', 'Git', 'REST APIs', 'SQL Server', 'HTML5', 'CSS3', 'Bootstrap','Reporting']
+  },
+  {
+    title: 'Full Stack Developer Intern',
     company: 'Bin Yousaf Solution Provider, Lahore',
     period: '6 months',
-    description: 'Contributed as a Junior Web Developer on a production Angular + .NET stack. Implemented responsive UI components and reusable modules, integrated REST APIs using RxJS, and built data-driven dashboards with interactive charts. Delivered CRUD features, form validation, and authentication flows, collaborated in code reviews, and fixed bugs to improve stability and performance. Assisted with API contracts, wrote basic unit tests, and supported deployments and documentation.',
+    description: 'Built responsive Angular UIs and integrated .NET APIs. Implemented CRUD, form validation, authentication flows, dashboards, and supported testing and deployments.',
     technologies: ['Angular', 'TypeScript', 'RxJS', 'Bootstrap', 'ASP.NET Web API', 'C#', 'REST APIs', 'SQL Server', 'Chart.js', 'Git']
   }
 ];
@@ -87,9 +94,6 @@ export const PORTFOLIO_CONFIG = {
     bio: `I'm a passionate Full Stack Developer with expertise in modern web technologies. 
     I specialize in building robust, scalable applications using Angular, .NET, and TypeScript. 
     My approach focuses on clean architecture, performance optimization, and user experience.`,
-    github: 'https://github.com/Itz-Zaib-here',
-    email: 'contact@itzzaib.dev',
-    linkedin: 'https://linkedin.com/in/itzzaib'
   },
   contact: {
     message: "I'm always interested in new opportunities and exciting projects. Feel free to reach out!"

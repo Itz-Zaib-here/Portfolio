@@ -72,7 +72,7 @@ export const SKILLS: Skill[] = [
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     title: 'Junior Full Stack Developer',
-    company: 'Software Technologies IT Solutions Prodivate Multan',
+    company: 'Software Technologies IT Solutions Provider Multan',
     period: 'Working',
     description: 'Developed web apps using Angular and .NET; performed code reviews, debugging, and testing. Worked with RESTful APIs, Git, and agile processes.',
     technologies: ['Angular', '.NET', 'C#', 'TypeScript', 'Git', 'REST APIs', 'SQL Server', 'HTML5', 'CSS3', 'Bootstrap','Reporting']

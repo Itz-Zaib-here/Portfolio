@@ -160,6 +160,6 @@ export class HeroComponent implements OnInit, AfterViewInit {
 
   //get resume link
   getResume() {
-    window.open('https://drive.google.com/file/d/1PQ3YNVsRZCGobH6wwNgZUnr_tf-RfPdk/view?usp=drivesdk', '_blank');
+    window.open('https://drive.google.com/file/d/1M6MOkFu_RMBBzmWHE5uZuImT3SyUrKB5/view?usp=drive_link', '_blank');
   }
 }

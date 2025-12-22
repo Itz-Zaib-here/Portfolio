@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "predeploy": "ng build --configuration production --base-href /Portfolio/",
-    "deploy": "gh-pages -d dist/my-angular-app/browser"
+    "deploy": "node scripts/deploy-gh-pages.js"
   },
   "private": true,
   "dependencies": {

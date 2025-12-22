@@ -138,10 +138,14 @@ Customize colors in `src/app/app.scss`:
 ## 🚀 Deployment
 
 ### GitHub Pages
-1. Build the project: `npm run build`
-2. Push to GitHub
-3. Enable GitHub Pages in repository settings
-4. Set source to `/docs` or `gh-pages` branch
+This repo includes a GitHub Actions workflow that builds and deploys automatically.
+
+1. Push the project to a GitHub repository (branch: `main`)
+2. In GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**
+3. Push any commit to `main` (or run the workflow manually via **Actions**)
+
+Your site will be available at:
+- `https://<username>.github.io/Portfolio/`
 
 ### Vercel
 1. Connect your GitHub repository to Vercel

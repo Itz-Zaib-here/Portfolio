@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 import { SKILLS } from '../../data/portfolio-data';
 import { AnimationService } from '../../services/animation.service';
@@ -7,7 +7,7 @@ import { AnimationService } from '../../services/animation.service';
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgFor],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
   animations: [

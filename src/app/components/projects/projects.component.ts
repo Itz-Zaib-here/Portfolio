@@ -194,7 +194,11 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     if (skillIcons) {
       skillIcons.forEach((icon: HTMLElement) => {
         icon.addEventListener('mouseenter', () => {
-          this.animationService.addGlowEffect({ nativeElement: icon }, 'rgba(139, 92, 246, 0.4)');
+          const glow =
+            getComputedStyle(document.documentElement)
+              .getPropertyValue('--glow-blue')
+              .trim() || 'rgba(96, 165, 250, 0.28)';
+          this.animationService.addGlowEffect({ nativeElement: icon }, glow);
         });
         icon.addEventListener('mouseleave', () => {
           this.animationService.removeGlowEffect({ nativeElement: icon });

@@ -18,6 +18,15 @@
         </div>
       </div>
       <div class="nav-actions">
+        <button
+          type="button"
+          class="theme-toggle"
+          (click)="toggleTheme()"
+          [attr.aria-label]="theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
+          [attr.title]="theme === 'dark' ? 'Light theme' : 'Dark theme'"
+        >
+          <i class="fas" [class.fa-sun]="theme === 'dark'" [class.fa-moon]="theme === 'light'"></i>
+        </button>
         <button class="connect-button" (click)="openConnectModal()">
           <span class="button-text">Let's Connect</span>
           <div class="button-glow"></div>
@@ -66,10 +75,21 @@
     </div>
     <div class="sheet-separator"></div>
     <div class="sheet-footer">
-      <button class="connect-button" (click)="openConnectModal()">
-        <span class="button-text">Let's Connect</span>
-        <div class="button-glow"></div>
-      </button>
+      <div class="sheet-actions">
+        <button
+          type="button"
+          class="theme-toggle"
+          (click)="toggleTheme()"
+          [attr.aria-label]="theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
+          [attr.title]="theme === 'dark' ? 'Light theme' : 'Dark theme'"
+        >
+          <i class="fas" [class.fa-sun]="theme === 'dark'" [class.fa-moon]="theme === 'light'"></i>
+        </button>
+        <button class="connect-button" (click)="openConnectModal()">
+          <span class="button-text">Let's Connect</span>
+          <div class="button-glow"></div>
+        </button>
+      </div>
     </div>
   </div>
 </nav>

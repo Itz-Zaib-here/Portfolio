@@ -1,38 +1,43 @@
 <!-- Portfolio Website -->
-<div class="portfolio-container">
+<div class="page">
+  <div class="page-bg" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+  </div>
+
   <!-- Navigation Component -->
   <app-navigation></app-navigation>
 
-  <!-- Hero Component -->
-  <app-hero></app-hero>
+  <main class="page-main" id="main">
+    <!-- Hero Component -->
+    <app-hero></app-hero>
 
-  <!-- About Component -->
-  <app-about></app-about>
+    <!-- About Component -->
+    <app-about></app-about>
 
-  <!-- Services Component -->
-  <app-services></app-services>
+    <!-- Services Component -->
+    <app-services></app-services>
 
-  <!-- Projects Component -->
-  <app-projects></app-projects>
+    <!-- Projects Component -->
+    <app-projects></app-projects>
 
-  <!-- Experience Component -->
-  <app-experience></app-experience>
+    <!-- Experience Component -->
+    <app-experience></app-experience>
 
+    <!-- Contact Section -->
+    <app-contact></app-contact>
 
-  <!-- Contact Section -->
-  <app-contact></app-contact>
-
-
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2026 Shah Zaib. Built with Angular & ❤️</p>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Shah Zaib. Built with Angular & ❤️</p>
+      </div>
+    </footer>
+  </main>
 </div>
 
-<router-outlet />
+<router-outlet></router-outlet>
 
 <!-- Back To Top Button -->
 <button

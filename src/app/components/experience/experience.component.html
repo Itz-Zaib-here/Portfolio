@@ -1,6 +1,9 @@
-<section id="experience" class="experience-section" #experienceSection>
-  <div class="container">
-    <h2 class="section-title" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">Work Experience</h2>
+<section id="experience" class="experience-section section section--experience" #experienceSection>
+  <div class="container section-inner">
+    <div class="section-head">
+      <h2 class="section-title" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">Work Experience</h2>
+      <div class="section-decoration" aria-hidden="true"></div>
+    </div>
     <div class="experience-grid" #experienceGrid [@staggerAnimation]="isVisible ? 'visible' : 'hidden'">
       <div class="experience-card" *ngFor="let job of workExperience; let i = index" 
            [@fadeInUp]="{value: '*', params: {delay: i * 200}}"

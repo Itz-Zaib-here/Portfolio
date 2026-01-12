@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 import { SERVICES } from '../../data/portfolio-data';
 import { AnimationService } from '../../services/animation.service';
@@ -7,7 +7,7 @@ import { AnimationService } from '../../services/animation.service';
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgFor],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss',
   animations: [
@@ -131,7 +131,11 @@ export class ServicesComponent implements OnInit, AfterViewInit {
     if (serviceIcons) {
       serviceIcons.forEach((icon: HTMLElement) => {
         icon.addEventListener('mouseenter', () => {
-          this.animationService.addGlowEffect({ nativeElement: icon }, 'rgba(139, 92, 246, 0.4)');
+          const glow =
+            getComputedStyle(document.documentElement)
+              .getPropertyValue('--glow-accent')
+              .trim() || 'rgba(94, 234, 212, 0.35)';
+          this.animationService.addGlowEffect({ nativeElement: icon }, glow);
         });
         icon.addEventListener('mouseleave', () => {
           this.animationService.removeGlowEffect({ nativeElement: icon });

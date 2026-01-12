@@ -1,5 +1,7 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnDestroy, OnInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
+import { Theme, ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-navigation',
@@ -8,7 +10,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements OnInit, OnDestroy {
+  theme: Theme = 'dark';
   isScrolled = false;
   isMenuOpen = false;
   isConnectModalOpen = false;
@@ -16,6 +19,8 @@ export class NavigationComponent implements OnInit {
   lastScrollTop = 0;
   indicatorLeft = 0;
   indicatorWidth = 0;
+
+  private themeSub?: Subscription;
 
   // Social media links
   socialLinks = {
@@ -25,8 +30,20 @@ export class NavigationComponent implements OnInit {
     whatsapp: '+923707044870',
   };
 
+  constructor(private readonly themeService: ThemeService) {}
+
   ngOnInit() {
     this.checkScroll();
+    this.theme = this.themeService.theme;
+    this.themeSub = this.themeService.theme$.subscribe((t) => (this.theme = t));
+  }
+
+  ngOnDestroy(): void {
+    this.themeSub?.unsubscribe();
+  }
+
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
   }
 
   @HostListener('window:scroll')

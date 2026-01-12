@@ -1,12 +1,16 @@
-<section id="projects" class="projects-section" #projectsSection>
-  <div class="container">
-    <h2 class="section-title" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">
-      Featured Projects
-    </h2>
+<section id="projects" class="projects-section section section--projects" #projectsSection>
+  <div class="container section-inner">
+    <div class="section-head">
+      <h2 class="section-title" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">
+        Featured Projects
+      </h2>
+      <div class="section-decoration" aria-hidden="true"></div>
+    </div>
     <!-- Projects Grid -->
-    <div class="projects-grid" #projectsGrid *ngIf="!isLoading && !error">
+    <div class="projects-stack" #projectsGrid *ngIf="!isLoading && !error">
       <div
         class="project-card"
+        [class.project-card--featured]="i === 0"
         [@staggerAnimation]="isVisible ? 'visible' : 'hidden'"
         *ngFor="let project of filteredProjects; let i = index"
         [@flipIn]="isVisible ? 'visible' : 'hidden'"
@@ -14,42 +18,52 @@
         [attr.data-project]="project.name"
         (click)="openProject(project, $event.currentTarget)"
       >
-        <div
-          class="project-header"
-          [@scaleIn]="isVisible ? 'visible' : 'hidden'"
-        >
-          <h3
-            class="project-title"
-            [@fadeInUp]="isVisible ? 'visible' : 'hidden'"
-          >
-            {{ project.name }}
-          </h3>
-          <div
-            class="project-stats"
-            [@slideInRight]="isVisible ? 'visible' : 'hidden'"
-          >
-            <span class="stat">
-              <i class="fas fa-star"></i>
-              {{ project.stargazers_count }}
-            </span>
-            <span class="stat">
-              <i class="fas fa-code-branch"></i>
-              {{ project.forks_count }}
-            </span>
+        <div class="project-mark" aria-hidden="true">
+          <div class="mark-inner">
+            <i class="fab fa-github"></i>
           </div>
         </div>
-        <!-- <p class="project-description" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">{{ project.description || 'No description available' }}</p> -->
-        <div
-          class="project-tech"
-          [@staggerAnimation]="isVisible ? 'visible' : 'hidden'"
-        >
-          <span
-            class="tech-tag"
-            *ngFor="let tech of project.topics; let j = index"
-            [@fadeInUp]="{ value: '*', params: { delay: j * 100 } }"
-            >{{ tech }}</span
+
+        <div class="project-body">
+          <div
+            class="project-header"
+            [@scaleIn]="isVisible ? 'visible' : 'hidden'"
           >
+            <h3
+              class="project-title"
+              [@fadeInUp]="isVisible ? 'visible' : 'hidden'"
+            >
+              {{ project.name }}
+            </h3>
+            <div
+              class="project-stats"
+              [@slideInRight]="isVisible ? 'visible' : 'hidden'"
+            >
+              <span class="stat">
+                <i class="fas fa-star"></i>
+                {{ project.stargazers_count }}
+              </span>
+              <span class="stat">
+                <i class="fas fa-code-branch"></i>
+                {{ project.forks_count }}
+              </span>
+            </div>
+          </div>
+
+          <!-- <p class="project-description" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">{{ project.description || 'No description available' }}</p> -->
+          <div
+            class="project-tech"
+            [@staggerAnimation]="isVisible ? 'visible' : 'hidden'"
+          >
+            <span
+              class="tech-tag"
+              *ngFor="let tech of project.topics; let j = index"
+              [@fadeInUp]="{ value: '*', params: { delay: j * 100 } }"
+              >{{ tech }}</span
+            >
+          </div>
         </div>
+
         <div
           class="project-actions"
           [@slideInRight]="isVisible ? 'visible' : 'hidden'"
@@ -61,16 +75,14 @@
             (click)="$event.stopPropagation()"
             >View Code</a
           >
-          <!-- <a [href]="project.homepage" target="_blank" class="btn btn-primary" *ngIf="project.homepage" (click)="$event.stopPropagation()">Live Demo</a> -->
         </div>
       </div>
     </div>
     <div
       class="more-projects-wrapper"
       [@fadeInUp]="isVisible ? 'visible' : 'hidden'"
-      style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:30vh;padding:1.5rem;width:100%;"
     >
-      <p class="more-projects-text" style="margin:0 0 1rem;">
+      <p class="more-projects-text">
         For more latest projects, visit my GitHub profile.
       </p>
 
@@ -82,7 +94,6 @@
         aria-label="Open GitHub profile in a new tab"
         (click)="$event.stopPropagation()"
         title="View more projects on GitHub"
-        style="display:inline-flex;align-items:center;gap:0.5rem;"
       >
         <i class="fab fa-github" aria-hidden="true"></i>
         <span class="btn-text">GitHub Profile</span>

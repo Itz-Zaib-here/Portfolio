@@ -1,6 +1,10 @@
-<section id="about" class="about-section" #aboutSection>
-  <div class="container">
-    <h2 class="section-title" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">About Me</h2>
+<section id="about" class="about-section section section--about" #aboutSection>
+  <div class="container section-inner">
+    <div class="section-head">
+      <h2 class="section-title" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">About Me</h2>
+      <div class="section-decoration" aria-hidden="true"></div>
+    </div>
+
     <div class="about-content" #aboutContent [@slideInLeft]="isVisible ? 'visible' : 'hidden'">
       <!-- <div class="about-image" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">
         <div class="profile-placeholder">
@@ -10,22 +14,25 @@
         </div>
       </div> -->
       <div class="about-text" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">
-        <p class="about-bio" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">
-          I'm a passionate Full Stack Developer with expertise in modern web technologies. 
-          I specialize in building robust, scalable applications using Angular, .NET, and TypeScript. 
-          My approach focuses on clean architecture, performance optimization, and user experience.
-        </p>
-        <div class="skills-container">
-          <h3>Skills & Technologies</h3>
-          <div class="skills-grid" [@staggerAnimation]="isVisible ? 'visible' : 'hidden'">
-            <div class="skill-item" *ngFor="let skill of skills; let i = index" 
-                 [@bounceIn]="isVisible ? 'visible' : 'hidden'"
-                 [@fadeInUp]="{value: '*', params: {delay: i * 100}}">
-              <div class="skill-icon">
-                <i [class]="skill.icon"></i>
-              </div>
-              <span class="skill-name">{{ skill.name }}</span>
+        <div class="about-card">
+          <p class="about-bio" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">
+            I'm a passionate Full Stack Developer with expertise in modern web technologies. 
+            I specialize in building robust, scalable applications using Angular, .NET, and TypeScript. 
+            My approach focuses on clean architecture, performance optimization, and user experience.
+          </p>
+        </div>
+      </div>
+
+      <div class="skills-container" [@fadeInUp]="isVisible ? 'visible' : 'hidden'">
+        <h3>Skills & Technologies</h3>
+        <div class="skills-grid" [@staggerAnimation]="isVisible ? 'visible' : 'hidden'">
+          <div class="skill-item" *ngFor="let skill of skills; let i = index" 
+               [@bounceIn]="isVisible ? 'visible' : 'hidden'"
+               [@fadeInUp]="{value: '*', params: {delay: i * 100}}">
+            <div class="skill-icon">
+              <i [class]="skill.icon"></i>
             </div>
+            <span class="skill-name">{{ skill.name }}</span>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
-import { SKILLS } from '../../data/portfolio-data';
+import { PORTFOLIO_CONFIG, SKILLS } from '../../data/portfolio-data';
 import { AnimationService } from '../../services/animation.service';
 
 @Component({
@@ -64,6 +64,7 @@ export class AboutComponent implements OnInit, AfterViewInit {
   @ViewChild('aboutContent') aboutContent!: ElementRef;
   
   skills = SKILLS;
+  personal = PORTFOLIO_CONFIG.personal;
   isVisible = true; // Set to true by default to make it visible
 
   constructor(private animationService: AnimationService) {}

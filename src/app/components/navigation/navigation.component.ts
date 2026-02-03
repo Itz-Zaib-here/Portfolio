@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { Theme, ThemeService } from '../../services/theme.service';
+import { PORTFOLIO_CONFIG } from '../../data/portfolio-data';
 
 @Component({
   selector: 'app-navigation',
@@ -21,6 +22,8 @@ export class NavigationComponent implements OnInit, OnDestroy {
   indicatorWidth = 0;
 
   private themeSub?: Subscription;
+
+  personal = PORTFOLIO_CONFIG.personal;
 
   // Social media links
   socialLinks = {

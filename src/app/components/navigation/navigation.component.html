@@ -4,7 +4,7 @@
     <!-- Logo Section -->
     <div class="nav-logo">
       <a href="#home" class="logo">
-        <span class="logo-text">ShahZaib</span>
+        <span class="logo-text">{{ personal.name }}</span>
         <div class="logo-dot"></div>
       </a>
     </div>
@@ -41,7 +41,7 @@
   <div class="nav-container">
     <div class="nav-logo">
       <a href="#home" class="logo" (click)="closeMenu()">
-        <span class="logo-text">ShahZaib</span>
+        <span class="logo-text">{{ personal.name }}</span>
         <div class="logo-dot"></div>
       </a>
     </div>
@@ -61,7 +61,7 @@
     </div>
     <div class="sheet-header">
       <a href="#home" class="logo" (click)="closeMenu()">
-        <span class="logo-text">ShahZaib</span>
+        <span class="logo-text">{{ personal.name }}</span>
         <div class="logo-dot"></div>
       </a>
       <button class="sheet-close" (click)="closeMenu()" aria-label="Close menu">

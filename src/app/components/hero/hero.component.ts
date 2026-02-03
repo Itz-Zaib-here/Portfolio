@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angula
 import { CommonModule } from '@angular/common';
 import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 import { AnimationService } from '../../services/animation.service';
+import { PORTFOLIO_CONFIG } from '../../data/portfolio-data';
 
 @Component({
   selector: 'app-hero',
@@ -60,12 +61,13 @@ import { AnimationService } from '../../services/animation.service';
 })
 export class HeroComponent implements OnInit, AfterViewInit {
   @ViewChild('heroSection') heroSection!: ElementRef;
-  @ViewChild('heroTitle') heroTitle!: ElementRef;
-  @ViewChild('heroSubtitle') heroSubtitle!: ElementRef;
+  @ViewChild('heroName') heroName!: ElementRef;
   @ViewChild('heroActions') heroActions!: ElementRef;
   
   isVisible = false;
   isTyping = false;
+
+  personal = PORTFOLIO_CONFIG.personal;
 
   constructor(private animationService: AnimationService) {}
 
@@ -96,10 +98,18 @@ export class HeroComponent implements OnInit, AfterViewInit {
   }
 
   private updateParallaxEffects() {
-    if (this.heroSection?.nativeElement) {
-      const scrolled = window.pageYOffset;
-      const rate = scrolled * 0.5;
-      this.heroSection.nativeElement.style.transform = `translateY(${rate}px)`;
+    if (!this.heroSection?.nativeElement) return;
+
+    const scrolled = window.pageYOffset || 0;
+    const background = this.heroSection.nativeElement.querySelector(
+      '.hero-background'
+    ) as HTMLElement | null;
+
+    // Important: do NOT transform the whole section (it will overlap next sections).
+    // Only parallax the background layer, and clamp it to avoid big offsets.
+    if (background) {
+      const rate = Math.min(scrolled * 0.18, 120);
+      background.style.transform = `translate3d(0, ${rate}px, 0)`;
     }
   }
 
@@ -128,9 +138,9 @@ export class HeroComponent implements OnInit, AfterViewInit {
   }
 
   private startTypingAnimation() {
-    if (this.heroTitle?.nativeElement) {
-      const text = this.heroTitle.nativeElement.textContent;
-      this.animationService.typeText(this.heroTitle.nativeElement, text, 100);
+    if (this.heroName?.nativeElement) {
+      const text = (this.heroName.nativeElement.textContent || '').trim();
+      this.animationService.typeText(this.heroName.nativeElement, text, 100);
     }
   }
 
@@ -160,6 +170,6 @@ export class HeroComponent implements OnInit, AfterViewInit {
 
   //get resume link
   getResume() {
-    window.open('https://drive.google.com/file/d/1M6MOkFu_RMBBzmWHE5uZuImT3SyUrKB5/view?usp=drive_link', '_blank');
+    window.open('https://drive.google.com/file/d/1NGYe1D7SuyL3D0gv10166USmhcEV6Hyd/view?usp=drive_link', '_blank');
   }
 }
